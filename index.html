@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <title>webrtc call</title>
+    <script>
+        // Set debug
+        window.localStorage.setItem('debug', '* -engine* -socket* *ERROR* *WARN*');
+    </script>
+    <script src='jssip-3.2.14.js'></script>
+    <script src='call.js'></script>
+</head>
+
+<body onload="loadPage()">
+    <div class="container">
+		
+        <div class="row row-space">
+            <div class="col-md-6 text-center">
+                <h2 id="notifyFlash" class="text-danger"></h2>
+
+                <div style="margin-top:10px">
+                    <span id="status"></span>
+                </div>
+            </div>
+        </div>
+		
+        <div class="input-group mb-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Login</span>
+            </div>
+            <input id="loginText" type="text" class="form-control">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+            </div>
+            <input id="passwordText" type="password" class="form-control">
+
+            <button id="loginButton" type="button" class="btn btn-primary" onclick="login()">Login</button>
+            <button id="logOutButton" type="button" class="btn btn-primary d-none" onclick="logout()">LogOut</button>
+
+        </div>
+
+        <div class="input-group mb-6 d-none" id="callPanel">
+            <input id="callNumberText" type="text" class="form-control" placeholder="Call number">
+            <button id="callNumberButton" type="button" class="btn btn-success" onclick="call()">Call</button>
+            <button id="hangUpButton" type="button" class="btn btn-danger d-none" onclick="hangUp()">Hang Up</button>
+        </div>
+
+        <audio id="localAudio" autoPlay muted></audio>
+        <audio id="remoteAudio" autoPlay></audio>
+        <audio id="sounds" autoPlay></audio>
+
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
